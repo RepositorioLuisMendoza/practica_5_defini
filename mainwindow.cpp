@@ -25,7 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->graphicsView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setWindowTitle("Pac Man");
 
-    personaje = new cuerpo(15,60,60); // se crea bolita de pacman
+    personaje = new cuerpo(150,35,35); // se crea bolita de pacman
     scene->addItem(personaje);
 
     enemigo = new enemy(10,120,180); // se crea fantasma
@@ -36,7 +36,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     timer = new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(moveEnemy()));
-    timer->start(25);
+    timer->start(5);
 }
 
 MainWindow::~MainWindow()
@@ -184,11 +184,12 @@ void MainWindow::moveEnemy()
     }
 
 enemigo->setPos(enemigo->posx,enemigo->posy);
-//if (enemigo->collidesWithItem(personaje))
-//{
-    //muerte_personaje();
-  //  scene->removeItem(personaje);
-//}
+if (enemigo->collidesWithItem(personaje))
+{
+  personaje->muerte_personaje();
+  scene->removeItem(personaje);
+  timer->stop();
+}
 }
 
 void MainWindow::paredes_()
@@ -403,4 +404,3 @@ void MainWindow::monedas_()
     //crear_monedas();
     //crear_monedas();
 }
-

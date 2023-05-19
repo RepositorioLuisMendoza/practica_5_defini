@@ -8,8 +8,9 @@ juego::juego()
     r.load(":/imagenes/fondo.jpeg");
     l.setTextureImage(r);
     imagen.load(":/imagenes/fondo.jpeg");
-    bolita_amarilla = new cuerpo(0,0,0);
+    bolita_amarilla = new cuerpo(250,150,35);
     addItem(bolita_amarilla);
+    bolita_amarilla->setPos(155,105);
     setBackgroundBrush(l);
     //bolita_amarilla->select_sprite(1,3);
     //setFocus();//conecta las teclas
@@ -20,16 +21,16 @@ void juego::keyPressEvent(QKeyEvent *event)
     // Movimiento de la bolita amarilla según las teclas de flecha
     if (event->type() == QKeyEvent::KeyPress) {
         switch (event->key()) {
-            case Qt::Key_Up:
+            case Qt::Key_W:
                 bolita_amarilla->Move_arriba();
                 break;
-            case Qt::Key_Down:
+            case Qt::Key_S:
                 bolita_amarilla->Move_abajo();
                 break;
-            case Qt::Key_Left:
+            case Qt::Key_A:
                 bolita_amarilla->Move_izquierda();
                 break;
-            case Qt::Key_Right:
+            case Qt::Key_D:
                 bolita_amarilla->Move_derecha();
                 break;
             default:
@@ -37,3 +38,5 @@ void juego::keyPressEvent(QKeyEvent *event)
         }
     }
 }
+
+

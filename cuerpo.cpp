@@ -1,6 +1,7 @@
 #include "cuerpo.h"
+#include "juego.h"
 
-cuerpo::cuerpo(int r_, int x, int y)
+cuerpo ::cuerpo(int r_, int x, int y)
 {
     r = r_;
     posx = x;
@@ -11,7 +12,7 @@ cuerpo::cuerpo(int r_, int x, int y)
     int ANCHO_ESCENA = 500;
 
 
-    *complete = complete->copy(580, 0, 35 * 1, 35 * 3);
+    *complete = complete->copy(415, 0, 25 * 1, 25 * 3);
     setPos(150, 76);
     actual = new QPixmap;
     time = new QTimer;
@@ -21,7 +22,7 @@ cuerpo::cuerpo(int r_, int x, int y)
 
 void cuerpo::select_sprite(int x, int y)
 {
-    *actual = complete->copy(35 * x, 35 * y, 35, 35);
+    *actual = complete->copy(25 * x, 25 * y, 25, 25);
     setPixmap(*actual);
 }
 
@@ -39,11 +40,11 @@ void cuerpo::actualiza_sprite()
     {
         image=0;
     }
-
-
-
-
 }
+
+
+
+
 
 
 void cuerpo::Move_arriba()
@@ -89,4 +90,3 @@ void cuerpo::muerte_personaje()
     }
     muerte=0;
 }
-

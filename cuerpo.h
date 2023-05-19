@@ -19,6 +19,7 @@ public:
     void Move_abajo();
     void Move_derecha();
     void Move_izquierda();
+    void muerte_personaje();
 
 
 private:
@@ -29,6 +30,6 @@ private:
 
 private slots:
     void actualiza_sprite();
-    void muerte_personaje();
+
 };
 #endif // CUERPO_H
